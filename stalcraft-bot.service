@@ -1,0 +1,21 @@
+# Systemd-сервис для бота. Кладётся в /etc/systemd/system/stalcraft-bot.service
+# ВАЖНО: если твой пользователь на Pi не "pi" — замени его в User= и в путях ниже.
+
+[Unit]
+Description=STALCRAFT auction monitor bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=gojo
+WorkingDirectory=/home/gojo/Documents
+ExecStart=/home/gojo/Documents/venv/bin/python /home/gojo/Documents/main.py
+# Перезапускать бота, если он упал, с паузой 10 секунд
+Restart=always
+RestartSec=10
+# Чтобы print сразу попадал в журнал, а не копился в буфере
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
