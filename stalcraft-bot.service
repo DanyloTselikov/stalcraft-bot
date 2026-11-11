@@ -8,9 +8,9 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-User=gojo
-WorkingDirectory=/home/gojo/Documents
-ExecStart=/home/gojo/Documents/venv/bin/python /home/gojo/Documents/main.py
+User=pi
+WorkingDirectory=/home/pi/stalcraft-bot
+ExecStart=/home/pi/stalcraft-bot/venv/bin/python /home/pi/stalcraft-bot/main.py
 # Перезапускать бота, если он упал, с паузой 10 секунд
 Restart=always
 RestartSec=10

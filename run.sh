@@ -1,4 +1,4 @@
 #!/bin/bash
-cd /home/gojo/Documents
-# Запускаем наш bot.py через питон внутри venv
+cd "$(dirname "$0")"
+# Запускаем bot.py через питон внутри venv
 venv/bin/python bot.py
